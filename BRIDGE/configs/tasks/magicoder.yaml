@@ -1,0 +1,6 @@
+extends: ../paper/llama3b_metamath.yaml
+expected_split_sizes: null
+dataset_name: magicoder
+dataset_path: ${BRIDGE_DATA_ROOT}/magicoder.jsonl
+data_split_dir: reproducibility/splits/magicoder
+output_dir: runs/magicoder

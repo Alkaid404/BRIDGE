@@ -1,0 +1,17 @@
+extends: ../artifact/llama3b_metamath.yaml
+output_dir: runs/llama3b_paper
+attention_aggregation: last_layer
+attention_num_layers: null
+attention_layer_indices: null
+scoring_attention_layer_strategy: last_physical
+scoring_attention_layer_index: null
+budget_rounding: ceil
+expected_split_sizes: {warmup: 2000, validation: 2000, sft: 36000}
+require_selection_provenance: true
+structure:
+  reasoning_sentence_bonus: 0.0
+  quantity_unit_bonus: 0.0
+batch_size: 8
+gradient_accumulation_steps: 8
+warmup_batch_size: 8
+warmup_gradient_accumulation_steps: 8

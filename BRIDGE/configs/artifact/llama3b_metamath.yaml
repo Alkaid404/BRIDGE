@@ -1,0 +1,126 @@
+method: bridge
+profile: closure_only
+output_dir: runs/llama3b_artifact
+seed: 42
+model_name_or_path: ${BRIDGE_MODEL_PATH}
+bf16: true
+fsdp: false
+dataset_name: metamath
+dataset_path: ${BRIDGE_DATA_ROOT}/MetaMath/MetaMathQA-40K.json
+train_split: null
+validation_split: null
+max_train_samples: null
+max_val_samples: null
+max_seq_length: 1024
+data_split_dir: reproducibility/splits/metamath40k
+validation_ratio: 0.05
+special_token_mode: single_bos_eos
+special_token_scoring: exclude
+special_token_budget: fixed_free
+always_keep_bos: true
+always_supervise_eos: true
+prompt_selection_order: position
+explicit_response_mask: true
+strict_loss: true
+structure_protection:
+  protect_balanced_latex: true
+  protect_equation_spans: true
+  protect_final_answer: true
+  protect_boxed_answer: true
+  protect_reasoning_sentence: true
+  protect_symbol_definition: true
+  protect_quantity_unit: true
+retention_enabled: true
+retention_lambda: 0.2
+retention_dataset_name: null
+retention_dataset_path: null
+warmup_epochs: 1
+warmup_learning_rate: 2.0e-05
+warmup_batch_size: 4
+warmup_gradient_accumulation_steps: 16
+scoring_batch_size: 1
+proxy_type: attention
+attention_aggregation: last_layer
+scoring_backend: jvp
+use_vjp: true
+vjp_chunk_size: 16
+budget_mode: fixed
+prompt_keep_ratio: 0.75
+response_keep_ratio: 0.75
+T_alt: 4
+num_epochs: 3
+learning_rate: 2.0e-05
+batch_size: 4
+gradient_accumulation_steps: 16
+max_grad_norm: 1.0
+weight_decay: 0.0
+lr_scheduler_type: cosine
+warmup_steps: 0
+training_mode: compact_prompt_selected_loss
+loss_reduction: per_batch
+save_strategy: 'no'
+logging_steps: 25
+evaluate_after_training: false
+eval_batch_size: 8
+max_gen_tokens: 512
+temperature: 0.0
+num_few_shot: 8
+multiple_choice_mode: likelihood
+likelihood_batch_size: 8
+likelihood_max_length: 4096
+alignment_benchmarks:
+- arc_challenge
+- mmlu
+- hellaswag
+reasoning_benchmarks:
+- gsm8k
+code_benchmarks:
+- humaneval
+num_gpus: 1
+report_to: none
+cache_level: score
+debug_score_cache: true
+debug_score_cache_samples: 16
+structure:
+  min_span_tokens: 4
+  max_span_tokens: 96
+  merge_short_spans: true
+  fallback_to_token: true
+  core_tokens_only: true
+  exclude_delimiter_tokens: true
+  score_reduction: length_normalized_signed_sum
+  length_alpha: 0.5
+  negative_penalty: 1.0
+  negative_clip: 0.05
+  top_mean_fraction: 0.25
+  selection_strategy: knapsack
+  require_exact_budget: true
+  budget_fill_strategy: dependency_then_score
+  reasoning_sentence_bonus: 0.1
+  quantity_unit_bonus: 0.15
+  knapsack_tie_break: position
+  max_knapsack_capacity: 2048
+retention_prior: l2_anchor
+retention_anchor_checkpoint: ${BRIDGE_MODEL_PATH}
+retention_grad_mode: unit_mix
+attention_num_layers: null
+attention_layer_indices: null
+num_eval_samples: null
+num_code_eval_samples: null
+eval_few_shot:
+  arc_challenge: 0
+  mmlu: 5
+  hellaswag: 0
+  gsm8k: 8
+eval_dataset_path:
+  arc_challenge: ${BRIDGE_DATA_ROOT}/arc/ARC-Challenge
+  mmlu: ${BRIDGE_DATA_ROOT}/MMLU
+  hellaswag: ${BRIDGE_DATA_ROOT}/hellaswag
+  gsm8k: ${BRIDGE_DATA_ROOT}/gsm8k/main
+  humaneval: ${BRIDGE_DATA_ROOT}/humaneval
+eval_split:
+  arc_challenge: test
+  mmlu: test
+  hellaswag: validation
+  gsm8k: test
+  humaneval: test

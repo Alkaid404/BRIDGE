@@ -1,0 +1,10 @@
+-r requirements.txt
+absl-py>=2
+immutabledict>=4
+nltk>=3.8
+langdetect>=1.0.9
+emoji>=2
+unicodedata2>=15
+syllapy>=0.7
+spacy>=3.7
+textstat>=0.7

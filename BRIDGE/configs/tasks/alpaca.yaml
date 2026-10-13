@@ -1,0 +1,6 @@
+extends: ../paper/llama3b_metamath.yaml
+expected_split_sizes: null
+dataset_name: alpaca
+dataset_path: ${BRIDGE_DATA_ROOT}/alpaca
+data_split_dir: reproducibility/splits/alpaca
+output_dir: runs/alpaca

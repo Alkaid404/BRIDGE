@@ -1,0 +1,15 @@
+[project]
+name = "bridge-anonymous"
+version = "0.1.0"
+description = "Selection-conditioned prompt context and response supervision for instruction tuning"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+keywords = ["instruction-tuning", "token-selection", "full-finetuning", "reproducibility"]
+
+[tool.uv]
+package = false
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"

@@ -1,0 +1,24 @@
+extends: llama3b_metamath.yaml
+output_dir: runs/qwen35_9b_paper
+model_name_or_path: ${BRIDGE_MODEL_PATH}
+num_epochs: 2
+learning_rate: 1.0e-5
+num_gpus: 8
+fsdp: true
+batch_size: 1
+gradient_accumulation_steps: 8
+warmup_batch_size: 1
+warmup_gradient_accumulation_steps: 8
+direction_batch_size: 1
+bos_handling: auto
+scoring_attention_layer_strategy: last_full_attention
+
+attention_layer_indices: null
+fsdp_config:
+  version: 2
+  reshard_after_forward: true
+  cpu_offload: false
+  activation_checkpointing: true
+  state_dict_type: FULL_STATE_DICT
+  auto_wrap_policy: TRANSFORMER_BASED_WRAP
+  transformer_layer_cls_to_wrap: [Qwen3_5DecoderLayer]

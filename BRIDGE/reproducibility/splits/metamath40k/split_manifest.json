@@ -1,0 +1,141 @@
+{
+  "split_config": {
+    "dataset": "metamath",
+    "dataset_path": "data/MetaMath/MetaMathQA-40K.json",
+    "dataset_file_sha256": "c884f10e8aa1229a6e73a6bba2c9134ee0c7b7de92a02a7b8c9459085a59e117",
+    "math_test_dir": "data/math",
+    "warmup_ratio": 0.05,
+    "validation_ratio": 0.05,
+    "sft_ratio": 0.8999999999999999,
+    "seed": 42,
+    "near_dup_jaccard": 0.9,
+    "contam_jaccard": 0.75,
+    "normalization": "NFKC+delimiters+latex-space+template+case+whitespace"
+  },
+  "gate": {
+    "sample_id_overlap": 0,
+    "canonical_problem_overlap": 0,
+    "problem_group_overlap": 0,
+    "near_dup_candidates_cross_split": 0,
+    "pass": true
+  },
+  "hashes": {
+    "warmup_ids": "f1f5ec9e6a8be31e08f32906d22a2875d4bcc112f5fe7c0236bfbd6aa82652a8",
+    "validation_ids": "093846d179a10a3df2bf2ad397c92130ef90990e76be2ab088e736b7e747eb05",
+    "sft_ids": "ed45d94e7abc289fb029beda1b4b4bfd282f51b8fbab00eb986c01fefe9a1118",
+    "warmup_groups": "bbb58514dd5f2a16a1202cb1ccf42e7b790c7ecbf6fbf88f48f046df4bdf41e6",
+    "validation_groups": "f061fcb256ae94b4922b67a3db90276b063805fde2a47fc9c05d94b6730fc004",
+    "sft_groups": "ca3e920f2989673afda39d7bc8b9d5fb22ccc8ec3ea56313f65ef95dce4c426d",
+    "full_dataset": "72ec561bebe816fadde188401d0bb862d0e23768b98e1ceef1e0138f6f3fb69b"
+  },
+  "statistics": {
+    "warmup": {
+      "samples": 2004,
+      "problem_groups": 1508,
+      "sample_ids_hash": "f1f5ec9e6a8be31e08f32906d22a2875d4bcc112f5fe7c0236bfbd6aa82652a8",
+      "content_hash": "7735d3ca5aab80ff506b14b2083fedd28562262fe6592fab92a73be55856f9ec",
+      "type_distribution": {
+        "GSM_AnsAug": 413,
+        "GSM_FOBAR": 185,
+        "GSM_Rephrased": 420,
+        "GSM_SV": 180,
+        "MATH_AnsAug": 381,
+        "MATH_FOBAR": 77,
+        "MATH_Rephrased": 274,
+        "MATH_SV": 74
+      },
+      "prompt_tokens": {
+        "mean": 73.43512974051896,
+        "p50": 67.0,
+        "p90": 106.0,
+        "p99": 159.0,
+        "max": 850,
+        "total": 147164
+      },
+      "response_tokens": {
+        "mean": 162.39321357285428,
+        "p50": 135.5,
+        "p90": 272.70000000000005,
+        "p99": 566.97,
+        "max": 1351,
+        "total": 325436
+      },
+      "total_tokens": 472600
+    },
+    "validation": {
+      "samples": 1963,
+      "problem_groups": 1508,
+      "sample_ids_hash": "093846d179a10a3df2bf2ad397c92130ef90990e76be2ab088e736b7e747eb05",
+      "content_hash": "351cfa953066066b97f41837fa399011075d53cbcba536c2cb2c4fc25faa8194",
+      "type_distribution": {
+        "GSM_AnsAug": 354,
+        "GSM_FOBAR": 205,
+        "GSM_Rephrased": 400,
+        "GSM_SV": 210,
+        "MATH_AnsAug": 351,
+        "MATH_FOBAR": 93,
+        "MATH_Rephrased": 267,
+        "MATH_SV": 83
+      },
+      "prompt_tokens": {
+        "mean": 73.68823229750382,
+        "p50": 67.0,
+        "p90": 105.0,
+        "p99": 194.0,
+        "max": 880,
+        "total": 144650
+      },
+      "response_tokens": {
+        "mean": 165.5593479368314,
+        "p50": 143.0,
+        "p90": 277.79999999999995,
+        "p99": 551.7599999999998,
+        "max": 1262,
+        "total": 324993
+      },
+      "total_tokens": 469643
+    },
+    "sft": {
+      "samples": 36006,
+      "problem_groups": 27151,
+      "sample_ids_hash": "ed45d94e7abc289fb029beda1b4b4bfd282f51b8fbab00eb986c01fefe9a1118",
+      "content_hash": "9a88d2d5d4937642e38dfeb83fe007f520036305aeaca803e9c4f62f460c9388",
+      "type_distribution": {
+        "GSM_AnsAug": 7265,
+        "GSM_FOBAR": 3689,
+        "GSM_Rephrased": 7170,
+        "GSM_SV": 3689,
+        "MATH_AnsAug": 6833,
+        "MATH_FOBAR": 1325,
+        "MATH_Rephrased": 4650,
+        "MATH_SV": 1385
+      },
+      "prompt_tokens": {
+        "mean": 73.17133255568517,
+        "p50": 67.0,
+        "p90": 105.0,
+        "p99": 178.0,
+        "max": 949,
+        "total": 2634607
+      },
+      "response_tokens": {
+        "mean": 162.41784702549575,
+        "p50": 137.0,
+        "p90": 276.0,
+        "p99": 535.0,
+        "max": 1484,
+        "total": 5848017
+      },
+      "total_tokens": 8482624
+    },
+    "removed_contamination": {
+      "groups": 11,
+      "samples": 27
+    },
+    "metamath_total_samples": 40000,
+    "exact_canonical_groups": 30198,
+    "problem_groups_after_merge": 30178,
+    "near_dup_review_count": 206,
+    "contamination_review_count": 18
+  }
+}
